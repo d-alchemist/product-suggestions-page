@@ -1,6 +1,6 @@
 # Product Suggestions Page
 
-Live URL: [http://localhost:5173](http://localhost:5172)
+Live URL: [https://product-suggestions.netlify.app/](https://product-suggestions.netlify.app/)
 
 ## Prerequisites
 
