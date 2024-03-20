@@ -4,7 +4,7 @@ import ChevronDown from "../assets/chevron_down.svg";
 
 export default function SuggestionBar() {
   return (
-    <div className="bg-brown w-full rounded-10 px-8 py-5">
+    <div className="bg-brown w-full rounded-10 pl-8 pr-4 py-4">
       <div className="flex items-start lg:items-center flex-wrap flex-col md:flex-row gap-4 lg:gap-0">
         <div className="flex items-center gap-5">
           <img src={BulbIcon} alt="bulb icon" className="h-6" />
