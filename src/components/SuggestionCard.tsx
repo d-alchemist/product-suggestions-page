@@ -21,7 +21,7 @@ export default function SuggestionCard({
   return (
     <div className="flex bg-white rounded-10 px-4 lg:px-8 py-7">
       <div className="mr-5 bg-light-primary flex flex-col self-start rounded-10 gap-1.5 py-4 min-w-10 px-3">
-        <div className={`flex w-full justify-${placement}`}>
+        <div className={`flex w-full ${placement}`}>
           <img
             className="h-2.5 w-2.5"
             src={ChevronUpIcon}

@@ -10,7 +10,7 @@ const suggestions = [
     badge: "Enhancement",
     comments: 2,
     upvotes: "112",
-    upvotePlace: "center",
+    upvotePlace: "justify-center",
   },
   {
     id: "2",
@@ -20,7 +20,7 @@ const suggestions = [
     badge: "Feature",
     comments: 4,
     upvotes: "99",
-    upvotePlace: "end",
+    upvotePlace: "justify-end",
   },
   {
     id: "3",
@@ -29,7 +29,7 @@ const suggestions = [
     badge: "Feature",
     comments: 1,
     upvotes: "65",
-    upvotePlace: "end",
+    upvotePlace: "justify-end",
   },
   {
     id: "4",
@@ -38,7 +38,7 @@ const suggestions = [
     badge: "Enhancement",
     comments: 2,
     upvotes: "51",
-    upvotePlace: "start",
+    upvotePlace: "justify-start",
   },
   {
     id: "5",
@@ -47,7 +47,7 @@ const suggestions = [
     badge: "Feature",
     comments: 3,
     upvotes: "42",
-    upvotePlace: "end",
+    upvotePlace: "justify-end",
   },
   {
     id: "6",
@@ -57,7 +57,7 @@ const suggestions = [
     badge: "Bug",
     comments: 0,
     upvotes: "3",
-    upvotePlace: "center",
+    upvotePlace: "justify-center",
   },
 ];
 
