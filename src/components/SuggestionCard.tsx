@@ -1,6 +1,7 @@
 import { ReactElement } from "react";
 import CommentIcon from "../assets/comment_icon.svg";
 import ChevronUpIcon from "../assets/chevron_up.svg";
+import { Box, Flex, Image, Text } from "@chakra-ui/react";
 type Props = {
   badge: ReactElement;
   placement: string;
@@ -19,38 +20,56 @@ export default function SuggestionCard({
   comments,
 }: Props) {
   return (
-    <div className="flex bg-white rounded-10 px-4 lg:px-8 py-7">
-      <div className="mr-5 bg-light-primary flex flex-col self-start rounded-10 gap-1.5 py-4 min-w-10 px-3">
-        <div className={`flex w-full ${placement}`}>
-          <img
-            className="h-2.5 w-2.5"
-            src={ChevronUpIcon}
-            alt="chevron up icon"
-          />
-        </div>
-        <p className="text-13 font-bold text-secondary text-center">
+    <Flex bg="white" borderRadius="10" px="6" py="6">
+      <Flex
+        mr="5"
+        bg="light-primary"
+        flexDir="column"
+        alignSelf="start"
+        borderRadius="10"
+        gap="1.5"
+        py="4"
+        minW="10"
+        px="3"
+      >
+        <Flex w="full" justify={placement}>
+          <Image h="2.5" w="2.5" src={ChevronUpIcon} alt="chevron up icon" />
+        </Flex>
+        <Text
+          color="secondary"
+          textAlign="center"
+          fontSize="13px"
+          fontWeight="bold"
+        >
           {upvotes}
-        </p>
-      </div>
-      <div className="flex flex-col gap-4">
-        <p className="font-bold leading-none text-lg text-secondary">{title}</p>
-        <p className="text-light-secondary leading-none max-w-40 lg:max-w-lg">
+        </Text>
+      </Flex>
+      <Flex flexDir="column" gap="4">
+        <Text
+          fontWeight="bold"
+          lineHeight="1"
+          fontSize="large"
+          color="secondary"
+        >
+          {title}
+        </Text>
+        <Text color="light-secondary" lineHeight="1" fontWeight="normal" maxW="full">
           {description}
-        </p>
-        <div>{badge}</div>
-      </div>
-      <div className="ml-auto my-auto">
-        <div className="flex items-center gap-3">
-          <img src={CommentIcon} className="h-5 w-5" alt="comment icon" />
-          <p
-            className={`${
-              comments < 1 ? "opacity-50" : "opacity-100"
-            } text-secondary font-bold`}
+        </Text>
+        <Box>{badge}</Box>
+      </Flex>
+      <Box ml="auto" my="auto">
+        <Flex alignItems="center" gap="3">
+          <Image src={CommentIcon} h="5" w="5" alt="comment icon" />
+          <Text
+            opacity={`${comments < 1 ? "0.5" : "1"}`}
+            color="secondary"
+            fontWeight="bold"
           >
             {comments}
-          </p>
-        </div>
-      </div>
-    </div>
+          </Text>
+        </Flex>
+      </Box>
+    </Flex>
   );
 }
