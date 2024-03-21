@@ -1,4 +1,4 @@
-import Badge from "./Badge";
+import { Badge, Flex } from "@chakra-ui/react";
 import SuggestionBar from "./SuggestionBar";
 import SuggestionCard from "./SuggestionCard";
 
@@ -10,7 +10,7 @@ const suggestions = [
     badge: "Enhancement",
     comments: 2,
     upvotes: "112",
-    upvotePlace: "justify-center",
+    upvotePlace: "center",
   },
   {
     id: "2",
@@ -20,7 +20,7 @@ const suggestions = [
     badge: "Feature",
     comments: 4,
     upvotes: "99",
-    upvotePlace: "justify-end",
+    upvotePlace: "end",
   },
   {
     id: "3",
@@ -29,7 +29,7 @@ const suggestions = [
     badge: "Feature",
     comments: 1,
     upvotes: "65",
-    upvotePlace: "justify-end",
+    upvotePlace: "end",
   },
   {
     id: "4",
@@ -38,7 +38,7 @@ const suggestions = [
     badge: "Enhancement",
     comments: 2,
     upvotes: "51",
-    upvotePlace: "justify-start",
+    upvotePlace: "start",
   },
   {
     id: "5",
@@ -47,7 +47,7 @@ const suggestions = [
     badge: "Feature",
     comments: 3,
     upvotes: "42",
-    upvotePlace: "justify-end",
+    upvotePlace: "end",
   },
   {
     id: "6",
@@ -57,13 +57,13 @@ const suggestions = [
     badge: "Bug",
     comments: 0,
     upvotes: "3",
-    upvotePlace: "justify-center",
+    upvotePlace: "center",
   },
 ];
 
 export default function Suggestions() {
   return (
-    <div className="flex flex-col gap-5">
+    <Flex flexDir="column" gap="5">
       <SuggestionBar />
       {suggestions.map((suggestion) => (
         <SuggestionCard
@@ -73,9 +73,19 @@ export default function Suggestions() {
           title={suggestion.title}
           upvotes={suggestion.upvotes}
           key={suggestion.id}
-          badge={<Badge selected={false}>{suggestion.badge}</Badge>}
+          badge={
+            <Badge
+              bg="light-primary"
+              color="primary"
+              px="3"
+              py="2"
+              borderRadius="10"
+            >
+              {suggestion.badge}
+            </Badge>
+          }
         />
       ))}
-    </div>
+    </Flex>
   );
 }

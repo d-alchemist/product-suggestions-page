@@ -1,5 +1,4 @@
-import Badge from "./Badge";
-import Box from "./Box";
+import { Box, Flex, Text, Badge } from "@chakra-ui/react";
 
 const badges = [
   { text: "All", selected: true },
@@ -11,34 +10,60 @@ const badges = [
 ];
 
 const issues = [
-  { text: "Planned", number: "2", color: "bg-[#F49F85]" },
-  { text: "In-Progress", number: "3", color: "bg-[#AD1FEA]" },
-  { text: "Live", number: "1", color: "bg-[#62BCFA]" },
+  { text: "Planned", number: "2", color: "orange-primary" },
+  { text: "In-Progress", number: "3", color: "pink-primary" },
+  { text: "Live", number: "1", color: "blue" },
 ];
 
 export default function SideNav() {
   return (
-    <div className="flex flex-col gap-4">
-      <Box className="p-7 sidebar-bg bg-cover bg-no-repeat">
-        <div className="pt-10 pb-2 text-white">
-          <p className="text-xl font-bold">Frontend Mentor</p>
-          <p className="text-base font-normal opacity-75">Feedback Board</p>
-        </div>
+    <Flex flexDir="column" gap="5">
+      <Box
+        p="7"
+        borderRadius="10"
+        bgRepeat="no-repeat"
+        bgSize="cover"
+        className="sidebar-bg"
+      >
+        <Box pt="10" pb="2" color="white">
+          <Text fontSize="xl" fontWeight="bold">
+            Frontend Mentor
+          </Text>
+          <Text fontSize="base" opacity="0.75">
+            Feedback Board
+          </Text>
+        </Box>
       </Box>
-      <Box className="bg-white flex gap-5 flex-wrap p-7">
+      <Flex p="7" gap="5" flexWrap="wrap" bg="white" borderRadius="10">
         {badges.map((badge) => (
-          <Badge selected={badge.selected} key={badge.text}>
+          <Badge
+            bg={badge.selected ? "primary" : "light-primary"}
+            color={badge.selected ? "white" : "primary"}
+            py="2"
+            borderRadius="10"
+            px="5"
+            key={badge.text}
+          >
             {badge.text}
           </Badge>
         ))}
-      </Box>
-      <Box className="bg-white">
-        <div className="px-5 py-8">
-          <div className="flex justify-between items-center">
-            <p className="text-secondary text-lg font-bold">Roadmap</p>
-            <p className="text-primary underline text-13 font-semibold">View</p>
-          </div>
-          <div className="flex flex-col gap-2 mt-2">
+      </Flex>
+      <Box bg="white" borderRadius="10">
+        <Box px="5" py="8">
+          <Flex justify="space-between" alignItems="center">
+            <Text fontSize="large" color="secondary" fontWeight="bold">
+              Roadmap
+            </Text>
+            <Text
+              fontWeight="bold"
+              fontSize="13px"
+              textDecor="underline"
+              color="primary"
+            >
+              View
+            </Text>
+          </Flex>
+          <Flex flexDir="column" gap="2" mt="2">
             {issues.map((issue) => (
               <RoadMapIssues
                 color={issue.color}
@@ -47,10 +72,10 @@ export default function SideNav() {
                 key={issue.text}
               />
             ))}
-          </div>
-        </div>
+          </Flex>
+        </Box>
       </Box>
-    </div>
+    </Flex>
   );
 }
 
@@ -64,10 +89,19 @@ const RoadMapIssues = ({
   number: string;
 }) => {
   return (
-    <div className="flex w-full items-center">
-      <div className={`${color} h-2 w-2 rounded-full`}></div>
-      <p className="ml-4 font-normal text-lg text-light-secondary">{text}</p>
-      <p className="ml-auto text-light-secondary font-bold text-lg">{number}</p>
-    </div>
+    <Flex w="auto" alignItems="center">
+      <Box rounded="full" h="2.5" w="2.5" bg={color}></Box>
+      <Text ml="4" fontSize="large" color="light-secondary">
+        {text}
+      </Text>
+      <Text
+        ml="auto"
+        color="light-secondary"
+        fontWeight="bold"
+        fontSize="large"
+      >
+        {number}
+      </Text>
+    </Flex>
   );
 };

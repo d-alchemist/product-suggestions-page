@@ -1,18 +1,12 @@
-import SideNav from "./components/SideNav";
-import Suggestions from "./components/Suggestions";
+import { ChakraProvider } from "@chakra-ui/react";
+import { theme } from "./style/theme";
+import Home from "./pages";
 
 function App() {
   return (
-    <>
-      <div className="grid grid-cols-7 gap-10">
-        <div className="lg:col-span-2 col-span-7">
-          <SideNav />
-        </div>
-        <div className="lg:col-span-5 col-span-7">
-          <Suggestions />
-        </div>
-      </div>
-    </>
+    <ChakraProvider theme={theme}>
+      <Home />
+    </ChakraProvider>
   );
 }
 
